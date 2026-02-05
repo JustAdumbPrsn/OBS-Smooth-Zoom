@@ -1,0 +1,174 @@
+name: "🐛 Bug Report"
+description: Report a bug or unexpected behavior in OBS Smooth Zoom
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        <h1 align="center">OBS Smooth Zoom</h1>
+
+        <p align="center"><em>Thank you for filing a bug report!</em></p>
+
+        > [!IMPORTANT]
+        > - Please provide a clear and descriptive title.
+        > - Search [existing issues](https://github.com/JustAdumbPrsn/OBS-Smooth-Zoom/issues) to avoid creating a duplicate.
+        > - Ensure you've reloaded the script and re-added Display Capture if you changed monitor settings.
+
+  - type: checkboxes
+    id: prechecks
+    attributes:
+      label: "⚠️ Preliminary Checks"
+      description: Please confirm the following before submitting.
+      options:
+        - label: I have searched existing issues and this is not a duplicate.
+          required: true
+        - label: I am using OBS Studio 32.0.4 or later.
+          required: true
+        - label: I have reloaded the script after making configuration changes.
+          required: true
+        - label: If I changed monitor settings, I have re-added my Display Capture source.
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug in detail. Include what you expected to happen vs. what actually happened.
+      placeholder: I encountered a bug where...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide a clear set of steps to help us reproduce the bug.
+      placeholder: |
+        1. Add Display Capture source
+        2. Load the script
+        3. Press zoom hotkey
+        4. Observe the issue
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### Environment"
+
+  - type: input
+    id: obs-version
+    attributes:
+      label: OBS Studio Version
+      description: Find this under Help → About
+      placeholder: "e.g., 32.0.4"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Operating System
+      description: Select your platform.
+      options:
+        - Windows 11
+        - Windows 10
+        - macOS Sonoma (14.x)
+        - macOS Ventura (13.x)
+        - macOS Monterey (12.x)
+        - macOS Big Sur (11.x)
+        - Linux - X11
+        - Linux - Wayland
+        - Other (specify in Additional Context)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: source-type
+    attributes:
+      label: Source Type
+      description: What type of source are you using?
+      options:
+        - Display Capture
+        - Window Capture
+        - Other (specify in Additional Context)
+    validations:
+      required: true
+
+  - type: textarea
+    id: display-config
+    attributes:
+      label: Display Configuration
+      description: Provide details about your monitor setup.
+      placeholder: |
+        Number of monitors: 2
+        Primary monitor resolution: 1920x1080
+        Display scaling: 100%
+        Monitor orientation: Landscape
+      value: |
+        Number of monitors: 
+        Primary monitor resolution: 
+        Display scaling: 
+        Monitor orientation: 
+    validations:
+      required: false
+
+  - type: dropdown
+    id: affected-feature
+    attributes:
+      label: Affected Feature(s)
+      description: What part of the script is affected? Select all that apply.
+      multiple: true
+      options:
+        - Smooth Zooming
+        - Mouse Tracking
+        - Follow Mouse During Zoom
+        - Custom Cursor Effects
+        - Click Animations
+        - Pointer Detection
+        - Motion Blur
+        - Zoom Blur
+        - Hotkey Assignment
+        - Performance
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: script-config
+    attributes:
+      label: Script Configuration
+      description: Paste relevant settings from your script configuration (optional but helpful).
+      placeholder: |
+        Zoom Level: 2.5x
+        Animation Duration: 350ms
+        Follow Mouse: Enabled
+        Custom Cursor: Disabled
+        Blur Effects: Enabled
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshots or Videos
+      description: "If applicable, add screenshots, videos, or GIFs to help explain your problem. Drag and drop files directly into this box."
+    validations:
+      required: false
+
+  - type: textarea
+    id: obs-log
+    attributes:
+      label: OBS Log File
+      description: "Upload your OBS log file (Help → Log Files → Upload Current Log) and paste the URL here. This is very helpful for debugging."
+      placeholder: "https://obsproject.com/logs/..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here, such as workarounds you've discovered, error messages, or when the issue started occurring.
+    validations:
+      required: false
