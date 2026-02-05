@@ -1,46 +1,101 @@
-# OBS-Smooth-Zoom
-An OBS Lua script which adds smooth zoom functionality and smooth cursor with tons of customizing options.
+# OBS Smooth Zoom
 
-This script is based on [OBS-Zoom-To-Mouse](https://github.com/BlankSourceCode/obs-zoom-to-mouse) by [BlankSourceCode](https://github.com/BlankSourceCode)
-The idea was to add the similar polished zoom and cursors similar to paid apps like ScreenStudio and Rapidemo has.
+![GitHub stars](https://img.shields.io/github/stars/JustAdumbPrsn/OBS-Smooth-Zoom?style=flat-square&color=gold)
+![OBS Version](https://img.shields.io/badge/OBS-32.0.4+-blueviolet?style=flat-square)
+![Platform](https://img.shields.io/badge/Platform-Windows%20|%20macOS%20|%20Linux-lightgrey?style=flat-square)
 
-Currently works with OBS 32.0.4
+An advanced Lua script for OBS Studio that provides high-quality cursor zoom in real time. This script replicates the polished zoom effects found in paid software like ScreenStudio and Rapidemo.
 
-**Note:** Altough this script should work on MacOS & Linux, I have only tested it on Windows 11 
+This script is based on [OBS-Zoom-To-Mouse](https://github.com/BlankSourceCode/obs-zoom-to-mouse) by BlankSourceCode.
+
+Example Video:
 
 <video src="https://github.com/user-attachments/assets/b51a6f82-56fc-4de1-b88b-fd9ba1f07beb" autoplay loop muted playsinline controls width="100%">
 </video>
 
-## Install
-1. Git clone the repo (or just save a copy of `OBS-Smooth-Zoom.lua`)
-1. Launch OBS
-1. In OBS, add a `Display Capture` source (if you don't have one already)
-1. In OBS, open Tools -> Scripts
-1. In the Scripts window, press the `+` button to add a new script
-1. Find and add the `OBS-Smooth-Zoom.lua` script
-1. In OBS, open File -> Settings -> Hotkeys 
-   * Add a hotkey for `Toggle zoom to mouse` to zoom in and out
-   * Add a hotkey for `Toggle follow mouse during zoom` to turn mouse tracking on and off (*Optional*)
-   
-   **Note:** If you change your desktop display properties in Windows (such as moving a monitor, changing your primary display, updating the orientation of a display), you will need to re-add your display capture source in OBS for it to update the values that the script uses for its auto calculations. You will then need to reload the script.
+---
 
-   **Note:** Only works on `Display Capture` sources (automatically). In theory it should be able to work on window captures too, if there was a way to get the mouse position relative to that specific window. You can now enable the `Show all sources` option to select a non-display capture source, but you MUST set manual source position values
+## Key Features
 
-   
-1. **(Optional)** | To have custom cursor
-     1. Download cursor.png and pointer.png, or if you have your own cursor and pointer png use those instead
-     2. In OBS, add two `Image` sources
-     3. name one `cursor` and name one `pointer` and use the respective image png files for those
-     4. In OBS, open Tools -> Scripts, scroll down in the script settings to find `Smooth Cursor Effects` section and set Arrow Cursor Source as cursor and Hand Cursor Source as pointer (the image sources we          created)
-     5. Set desired cursor scale and X,Y offset to align the custom images to your real mouse cursor.
-     6. At the end i recommend to disable `Capture Cursor` property in your display source since now the custom cursor will be visible so you will not need the original Cursor
+* **Smooth Animations:** Smooth transitions for zooming in and out.
+* **Dynamic Tracking:** Weighted camera following during active zoom.
+* **Custom Cursors:** Support for high-resolution custom cursor and pointer images with Dynamic effects like rotate and tilt
+* **Effect Integration:** Native support for Motion and Zoom blur via external plugins.
 
-2. **(Optional)** | To have Motion & Zoom blur
-     1. Install [Composite Blur](https://obsproject.com/forum/resources/composite-blur.1780/) plugin for OBS
-     2. Go to Filters of your Display Capture
-     3. press the `+` button to add two new `Composite Blur` filters, name one as `Zoom Blur` and other as `Motion Blur`
-     4. For Zoom Blur, set Blur Algorithm as `Gaussian/Box` (Box as better performance) and set Blur type to `Zoom`, change Blur radius to 0.00px
-     5. For Motion Blur, set Blur Alogithm as `Gaussian/Box` (Box as better performance) and set Blur type to `Directional`, change Blur radius to 0.00px
-     6. Now, go to Tools -> Scripts -> OBS-Smooth-Zoom.lua, scroll to `Effects (Blur)` section and enable any of the two blur options you want (or both)
+---
 
+## Installation
 
+1.  **Download:** Clone this repository or save a copy of `OBS-Smooth-Zoom.lua`.
+2.  **Add Script:**
+    * Launch OBS and navigate to `Tools` > `Scripts`.
+    * Click the `+` icon and select `OBS-Smooth-Zoom.lua`.
+3.  **Setup Source:**
+    * Add a `Display Capture` source to your scene.
+4.  **Configure Hotkeys:**
+    * Go to `File` > `Settings` > `Hotkeys`.
+    * Assign keys for `Toggle zoom to mouse` and `Toggle follow mouse during zoom` (Optional).
+
+> [!IMPORTANT]
+> If you modify Windows display properties (e.g., changing monitor orientation or primary display), you must re-add your `Display Capture` source and reload the script to recalculate coordinates.
+
+> While this script is optimized for Display Capture, you can use Window Capture by enabling `Show all sources` and manually defining source position values.
+
+---
+
+## Advanced Configuration
+
+### Custom Cursor Effects
+To use smooth custom cursors, you can add your own cursor:
+1.  Download the cursor.png & pointer.png from the github repository (If you want exact ones I am using)
+2.  Add two **Image** sources to OBS named `cursor` and `pointer`.
+3.  In the script settings, navigate to the **Smooth Cursor Effects** section.
+4.  Assign the `cursor` source to **Arrow Cursor** and the `pointer` source to **Hand Cursor**.
+5.  Adjust the Scale and X/Y offsets and  to align the images with your hardware cursor.
+6.  **Note:** It is recommended to disable `Capture Cursor` in your original Display Capture source to avoid duplicate cursors.
+
+### Motion and Zoom Blur
+This script supports cinematic blur effects through the [Composite Blur](https://obsproject.com/forum/resources/composite-blur.1780/) plugin.
+1.  Install the Composite Blur plugin.
+2.  Add two `Composite Blur` filters to your **Display Capture** source.
+3.  Name them `Zoom Blur` and `Motion Blur`.
+4.  Set both algorithms to **Gaussian/Box** (Box for performance) and Blur Radius to `0.00px` as script will automatically handle blur.
+5.  In the script settings, enable the corresponding options under the **Effects (Blur)** section.
+
+---
+
+## Compatibility
+
+The following specifications are recommended for optimal performance and stability.
+
+| Component | Specification |
+| :--- | :--- |
+| **Primary OS** | Windows 11 (Verified) |
+| **Secondary OS** | macOS, Linux (Experimental/Community Tested) |
+| **OBS Version** | 32.0.4+ |
+| **Source Type** | Optimized for `Display Capture` |
+
+---
+
+## Platform Support
+
+While the core interpolation logic is cross-platform, advanced hooks for input detection vary by operating system.
+
+| Feature | Windows | Linux | macOS |
+| :--- | :---: | :---: | :---: |
+| **Smooth Zooming** | ![Supported](https://img.shields.io/badge/-Supported-brightgreen?style=flat-square) | ![Supported](https://img.shields.io/badge/-Supported-brightgreen?style=flat-square) | ![Partial](https://img.shields.io/badge/-Supported*-brightgreen?style=flat-square) |
+| **Mouse Tracking** | ![Supported](https://img.shields.io/badge/-Supported-brightgreen?style=flat-square) | ![Supported](https://img.shields.io/badge/-Supported-brightgreen?style=flat-square) | ![Supported](https://img.shields.io/badge/-Supported-brightgreen?style=flat-square) |
+| **Click Animations** | ![Supported](https://img.shields.io/badge/-Supported-brightgreen?style=flat-square) | ![Not Supported](https://img.shields.io/badge/-Not_Supported-lightgrey?style=flat-square) | ![Not Supported](https://img.shields.io/badge/-Not_Supported-lightgrey?style=flat-square) |
+| **Hand/Pointer Detection** | ![Supported](https://img.shields.io/badge/-Supported-brightgreen?style=flat-square) | ![Not Supported](https://img.shields.io/badge/-Not_Supported-lightgrey?style=flat-square) | ![Not Supported](https://img.shields.io/badge/-Not_Supported-lightgrey?style=flat-square) |
+
+### Technical Limitations
+
+* **macOS Architecture:** Smooth zooming functionality on macOS relies on `libobjc`. Users on modern macOS versions may need to verify system permissions for OBS to access the display buffer effectively.
+* **Window Capture:** While `Display Capture` is the primary target, other sources can be utilized by enabling **Show all sources** and providing manual coordinate values within the script settings.
+* **Linux Environment:** Support is currently focused on X11; Wayland users may experience varying results depending on the compositor’s security policy.
+---
+
+### Platform-Specific Notes
+
+* **macOS Support:** Smooth zooming on macOS depends on `libobjc` and specific system permissions. Depending on your version of macOS (notably Sonoma and later), additional security overrides may be required for the script to access the display buffer correctly.
+* **Linux Support:** Compatibility is confirmed for X11 environments. Wayland support may vary based on the specific compositor's screen-sharing protocols.
