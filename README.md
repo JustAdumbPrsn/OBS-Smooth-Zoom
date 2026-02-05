@@ -169,7 +169,7 @@ Contributions are welcome! Please follow these guidelines:
 ## Acknowledgments
 
 - Original concept and base implementation: [BlankSourceCode/obs-zoom-to-mouse](https://github.com/BlankSourceCode/obs-zoom-to-mouse)
-- Blur integration: [Composite Blur](https://obsproject.com/forum/resources/composite-blur.1780/) by Exeldro
+- Blur integration: [Composite Blur](https://obsproject.com/forum/resources/composite-blur.1780/) by FiniteSingularity 
 
 ---
 
