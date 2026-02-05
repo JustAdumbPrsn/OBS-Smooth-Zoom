@@ -1,8 +1,7 @@
 # OBS Smooth Zoom
-
-![GitHub stars](https://img.shields.io/github/stars/JustAdumbPrsn/OBS-Smooth-Zoom?style=flat-square&color=gold)
-![OBS Version](https://img.shields.io/badge/OBS-32.0.4+-blueviolet?style=flat-square)
-![Platform](https://img.shields.io/badge/Platform-Windows%20|%20macOS%20|%20Linux-lightgrey?style=flat-square)
+[![Star this Project](https://img.shields.io/badge/Star_this_Repo-f1c40f?style=for-the-badge&logo=github&logoColor=white&labelColor=222)](https://github.com/JustAdumbPrsn/OBS-Smooth-Zoom)
+![OBS Version](https://img.shields.io/badge/OBS-32.0.4+-blueviolet?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Windows%20|%20macOS%20|%20Linux-lightgrey?style=for-the-badge)
 
 An advanced Lua script for OBS Studio that provides high-quality cursor zoom in real time. This script replicates the polished zoom effects found in paid software like ScreenStudio and Rapidemo.
 
