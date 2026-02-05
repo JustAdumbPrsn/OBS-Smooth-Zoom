@@ -1,8 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 📖 Read the Documentation
+  - name: 📖 Documentation
     url: https://github.com/JustAdumbPrsn/OBS-Smooth-Zoom#readme
-    about: Check the README for setup, configuration, and troubleshooting guides
-  - name: 🔌 OBS Studio Support
+    about: Read the full documentation, setup guide, and troubleshooting tips
+  - name: 🔌 OBS Studio Forums
     url: https://obsproject.com/forum/
     about: For general OBS Studio questions and community support
+  - name: 💬 Discussions
+    url: https://github.com/JustAdumbPrsn/OBS-Smooth-Zoom/discussions
+    about: Ask questions, share ideas, or discuss the project with the community
