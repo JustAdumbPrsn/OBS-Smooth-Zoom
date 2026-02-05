@@ -9,7 +9,7 @@ This script is based on [OBS-Zoom-To-Mouse](https://github.com/BlankSourceCode/o
 
 ## Demo
 
-https://github.com/user-attachments/assets/b51a6f82-56fc-4de1-b88b-fd9ba1f07beb
+https://github.com/user-attachments/assets/dc9c4967-e7f0-4b84-b6c9-e838f11ee4a8
 
 ---
 
