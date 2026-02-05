@@ -8,6 +8,9 @@ Currently works with OBS 32.0.4
 
 **Note:** Altough this script should work on MacOS & Linux, I have only tested it on Windows 11 
 
+<video src="https://github.com/user-attachments/assets/b51a6f82-56fc-4de1-b88b-fd9ba1f07beb" autoplay loop muted playsinline controls width="100%">
+</video>
+
 ## Install
 1. Git clone the repo (or just save a copy of `OBS-Smooth-Zoom.lua`)
 1. Launch OBS
