@@ -7,15 +7,13 @@ An advanced Lua script for OBS Studio that provides high-quality cursor zoom in 
 
 This script is based on [OBS-Zoom-To-Mouse](https://github.com/BlankSourceCode/obs-zoom-to-mouse) by BlankSourceCode.
 
-Example Video:
+## Demo
 
-<video src="https://github.com/user-attachments/assets/b51a6f82-56fc-4de1-b88b-fd9ba1f07beb" autoplay loop muted playsinline controls width="100%">
-</video>
+https://github.com/user-attachments/assets/b51a6f82-56fc-4de1-b88b-fd9ba1f07beb
 
 ---
 
-## Key Features
-
+## Features
 * **Smooth Animations:** Smooth transitions for zooming in and out.
 * **Dynamic Tracking:** Weighted camera following during active zoom.
 * **Custom Cursors:** Support for high-resolution custom cursor and pointer images with Dynamic effects like rotate and tilt
@@ -25,15 +23,25 @@ Example Video:
 
 ## Installation
 
-1.  **Download:** Clone this repository or save a copy of `OBS-Smooth-Zoom.lua`.
-2.  **Add Script:**
-    * Launch OBS and navigate to `Tools` > `Scripts`.
-    * Click the `+` icon and select `OBS-Smooth-Zoom.lua`.
-3.  **Setup Source:**
-    * Add a `Display Capture` source to your scene.
-4.  **Configure Hotkeys:**
-    * Go to `File` > `Settings` > `Hotkeys`.
-    * Assign keys for `Toggle zoom to mouse` and `Toggle follow mouse during zoom` (Optional).
+1. **Download the script**
+   ```bash
+   git clone https://github.com/JustAdumbPrsn/OBS-Smooth-Zoom.git
+   ```
+   or just download `OBS-Smooth-Zoom.lua` directly from the repository.
+
+2. **Load the script into OBS**
+   - Navigate to `Tools` → `Scripts`
+   - Click the `+` button and select `OBS-Smooth-Zoom.lua`
+
+3. **Configure a display capture source**
+   - Add a `Display Capture` source to your active scene
+   - Select the appropriate display from the source properties
+
+4. **Assign hotkeys**
+   - Go to `File` → `Settings` → `Hotkeys`
+   - Bind keys for:
+     - `Toggle zoom to mouse`
+     - `Toggle follow mouse during zoom` (optional)
 
 > [!IMPORTANT]
 > If you modify Windows display properties (e.g., changing monitor orientation or primary display), you must re-add your `Display Capture` source and reload the script to recalculate coordinates.
@@ -42,24 +50,47 @@ Example Video:
 
 ---
 
-## Advanced Configuration
+## Optional Configuration
 
 ### Custom Cursor Effects
-To use smooth custom cursors, you can add your own cursor:
-1.  Download the cursor.png & pointer.png from the github repository (If you want exact ones I am using)
-2.  Add two **Image** sources to OBS named `cursor` and `pointer`.
-3.  In the script settings, navigate to the **Smooth Cursor Effects** section.
-4.  Assign the `cursor` source to **Arrow Cursor** and the `pointer` source to **Hand Cursor**.
-5.  Adjust the Scale and X/Y offsets and  to align the images with your hardware cursor.
-6.  **Note:** It is recommended to disable `Capture Cursor` in your original Display Capture source to avoid duplicate cursors.
 
-### Motion and Zoom Blur
-This script supports cinematic blur effects through the [Composite Blur](https://obsproject.com/forum/resources/composite-blur.1780/) plugin.
-1.  Install the Composite Blur plugin.
-2.  Add two `Composite Blur` filters to your **Display Capture** source.
-3.  Name them `Zoom Blur` and `Motion Blur`.
-4.  Set both algorithms to **Gaussian/Box** (Box for performance) and Blur Radius to `0.00px` as script will automatically handle blur.
-5.  In the script settings, enable the corresponding options under the **Effects (Blur)** section.
+The script supports custom cursor graphics with dynamic animations:
+
+1. **Prepare cursor assets**
+   - Download reference assets: `cursor.png` and `pointer.png` from the repository
+   - Or provide your own high-resolution cursor images
+
+2. **Add image sources to OBS**
+   - Create two **Image** sources named `cursor` and `pointer`
+   - Load your cursor graphics into these sources
+
+3. **Configure in script settings**
+   - Navigate to the **Smooth Cursor Effects** section
+   - Assign `cursor` to **Arrow Cursor**
+   - Assign `pointer` to **Hand Cursor**
+   - Adjust scale and offset parameters to align with your system cursor
+
+4. **Disable native cursor rendering**
+   - In your Display Capture source properties, disable `Capture Cursor` to prevent duplicate cursors
+
+### Motion and Zoom Blur Effects
+
+For cinematic blur effects, install the [Composite Blur](https://obsproject.com/forum/resources/composite-blur.1780/) plugin:
+
+1. **Install Composite Blur plugin**
+   - Download and install from the OBS plugin repository
+
+2. **Add filters to display capture**
+   - Right-click your Display Capture source → `Filters`
+   - Add two `Composite Blur` filters
+   - Name them exactly: `Zoom Blur` and `Motion Blur`
+
+3. **Configure blur filters**
+   - Algorithm: `Gaussian` (quality) or `Box` (performance)
+   - Blur Radius: `0.00px` (controlled programmatically by script)
+
+4. **Enable in script settings**
+   - Check the corresponding options under **Effects (Blur)**
 
 ---
 
@@ -98,3 +129,64 @@ While the core interpolation logic is cross-platform, advanced hooks for input d
 
 * **macOS Support:** Smooth zooming on macOS depends on `libobjc` and specific system permissions. Depending on your version of macOS (notably Sonoma and later), additional security overrides may be required for the script to access the display buffer correctly.
 * **Linux Support:** Compatibility is confirmed for X11 environments. Wayland support may vary based on the specific compositor's screen-sharing protocols.
+---
+
+## Troubleshooting
+
+### Zoom coordinates are incorrect
+- Re-add your Display Capture source after changing monitor configuration
+- Reload the script via `Tools` → `Scripts` → Reload
+
+### Custom cursor not appearing
+- Verify image source names exactly match: `cursor` and `pointer`
+- Check that source visibility is enabled
+- Adjust X/Y offsets in script settings
+
+### Blur effects not working
+- Confirm Composite Blur plugin is installed
+- Verify filter names exactly match: `Zoom Blur` and `Motion Blur`
+- Check that filters are applied to the correct source
+
+### Performance issues
+- Switch blur algorithm from Gaussian to Box
+- Reduce blur radius limits in script settings
+- Lower display capture resolution or framerate
+
+---
+
+## Contributing
+
+Contributions are welcome! Please follow these guidelines:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/improvement`)
+3. Commit your changes with descriptive messages
+4. Test on your target platform(s)
+5. Submit a pull request with a clear description of changes
+
+---
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+## Acknowledgments
+
+- Original concept and base implementation: [BlankSourceCode/obs-zoom-to-mouse](https://github.com/BlankSourceCode/obs-zoom-to-mouse)
+- Blur integration: [Composite Blur](https://obsproject.com/forum/resources/composite-blur.1780/) by Exeldro
+
+---
+
+## Support
+
+- **Issues**: [GitHub Issues](https://github.com/JustAdumbPrsn/OBS-Smooth-Zoom/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/JustAdumbPrsn/OBS-Smooth-Zoom/discussions)
+- **OBS Forums**: [OBS Project Forums](https://obsproject.com/forum/)
+
+For bug reports, please include:
+- OBS version
+- Operating system and version
+- Script settings configuration
+- Steps to reproduce the issue
