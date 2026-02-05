@@ -1,0 +1,119 @@
+name: "✨ Feature Request"
+description: Suggest a new feature or enhancement for OBS Smooth Zoom
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        <h1 align="center">OBS Smooth Zoom</h1>
+
+        <p align="center"><em>Thank you for suggesting a new feature!</em></p>
+
+        > [!IMPORTANT]
+        > - Search [existing issues](https://github.com/JustAdumbPrsn/OBS-Smooth-Zoom/issues) to avoid duplicates.
+        > - Check the README to ensure this feature doesn't already exist.
+        > - Consider if this feature would benefit multiple users, not just your specific use case.
+
+  - type: checkboxes
+    id: prechecks
+    attributes:
+      label: "⚠️ Preliminary Checks"
+      description: Please confirm the following before submitting.
+      options:
+        - label: I have searched existing issues and this feature hasn't been requested.
+          required: true
+        - label: I have checked the documentation to see if this feature already exists.
+          required: true
+        - label: This feature would benefit multiple users, not just my specific use case.
+          required: true
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: A clear and concise description of the feature you'd like to see.
+      placeholder: I would like to see...
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Use Case
+      description: Is your feature request related to a problem? Describe what you're trying to achieve.
+      placeholder: I'm trying to... but currently I can't because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Describe how you envision this feature working. Be as detailed as possible.
+      placeholder: The feature should work by...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Have you considered any alternative approaches or workarounds?
+      placeholder: I've also considered...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature to you?
+      options:
+        - Nice to have
+        - Would significantly improve my workflow
+        - Critical for my use case
+    validations:
+      required: false
+
+  - type: dropdown
+    id: platform-relevance
+    attributes:
+      label: Platform Relevance
+      description: Is this feature specific to certain platforms?
+      multiple: true
+      options:
+        - All platforms
+        - Windows only
+        - macOS only
+        - Linux only
+        - Platform-specific (specify in Additional Context)
+    validations:
+      required: false
+
+  - type: textarea
+    id: implementation-notes
+    attributes:
+      label: Implementation Considerations (Optional)
+      description: Any technical details or constraints to consider? (e.g., performance impact, dependencies, compatibility)
+      placeholder: |
+        - Performance impact: Low/Medium/High
+        - Dependencies required: None/Some plugin/etc.
+        - Breaking changes: Yes/No
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or References
+      description: Provide mockups, screenshots, videos, or links to similar implementations in other software.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the feature request here.
+    validations:
+      required: false
