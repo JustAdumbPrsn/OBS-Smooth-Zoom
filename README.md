@@ -166,12 +166,6 @@ Contributions are welcome! Please follow these guidelines:
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
----
-
 ## Acknowledgments
 
 - Original concept and base implementation: [BlankSourceCode/obs-zoom-to-mouse](https://github.com/BlankSourceCode/obs-zoom-to-mouse)
